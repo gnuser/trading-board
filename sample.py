@@ -20,11 +20,13 @@ async def show_spread():
         await asyncio.sleep(3)
 
 def get_spreads():
-    spreads = [['VVS Buy', 'VVS Sell', 'Crypto Price', 'Diff', 'Action']]
+    spreads = [['Currency', 'VVS Buy', 'VVS Sell', 'Crypto Price', 'Diff', 'Action']]
     for currency in ["CRO", "WBTC", "ETH"]:
         spread = redis_client.get(currency)
         if spread:
-            spreads.append(spread.decode('UTF-8').split('-'))
+            splited_list = spread.decode('UTF-8').split('-')
+            splited_list.insert(0, currency)
+            spreads.append(splited_list)
     return spreads
 
 if __name__=='__main__':
