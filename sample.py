@@ -21,7 +21,7 @@ async def show_spread():
 
 def get_spreads():
     spreads = [['Currency', 'VVS Buy', 'VVS Sell', 'Crypto Price', 'Diff', 'Action']]
-    for currency in ["CRO", "WBTC", "ETH"]:
+    for currency in ["CRO", "WBTC", "ETH", "SHIB"]:
         spread = redis_client.get(currency)
         if spread:
             splited_list = spread.decode('UTF-8').split('-')
