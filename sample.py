@@ -30,4 +30,4 @@ def get_spreads():
     return spreads
 
 if __name__=='__main__':
-    start_server(app, port=37791, debug=True)
+    start_server(app, port=3000, debug=True)
